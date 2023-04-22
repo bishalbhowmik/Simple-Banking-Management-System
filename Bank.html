@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Bank</title>
+
+    <!-- Tailwind Css -->
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="font-[popins]">
+    <h1
+        class="text-5xl bg-pink-400 font-sem-bold mb-3 container mx-auto py-10 my-20 text-center text-white font-bold font-[popins]">
+        Welcome to Bank</h1>
+    <main class="grid grid-cols-6 gap-5 container mx-auto mt-10">
+
+        <!-- Deposit  -->
+        <section class="py-10 px-10 bg-blue-200 col-span-2">
+            <h1 class="text-3xl font-semibold text-white">Deposit</h1>
+            <span class="text-3xl text-white flex items-center">
+                $ <p id="damount">00</p>
+            </span>
+        </section>
+
+        <!-- Withdraw -->
+        <section class="py-10 px-10 bg-pink-200 col-span-2">
+            <h1 class="text-3xl font-semibold text-white">Withdraw</h1>
+            <span  class="text-3xl text-white flex">
+                $<p id="wamount">00</p>
+            </span>
+        </section>
+
+        <!-- Balance -->
+
+        <section class="py-10 px-10 bg-sky-300 col-span-2">
+            <h1 class="text-3xl font-semibold text-white">Balance</h1>
+            <span class="text-3xl text-white flex">
+                $<p id="balance">1240</p>
+            </span>
+        </section>
+
+        <!-- Deposit Amount -->
+
+        <section class="py-10 px-10 bg-purple-400 col-span-3">
+            <label for="" class="text-3xl font-semibold text-white">Your Deposit</label> <br>
+            <input type="text" placeholder="Deposit Amount" class="w-[90%] py-1 my-3" id="dinput"><br>
+            <input type="submit" value="Deposit" class="bg-gray-500 text-white py-2 px-4 rounded" id="btn-deposit">
+        </section>
+
+
+        <!-- Withdraw Amount -->
+
+        <section class="py-10 px-10 bg-blue-400 col-span-3">
+            <label for="" class="text-3xl font-semibold text-white">Your Withdraw</label> <br>
+            <input type="text" placeholder="Withdraw Amount" class="w-[90%] py-1 my-3" id="winput"> <br>
+            <input type="submit" value="Withdraw" class="bg-gray-500 text-white py-2 px-4 rounded" id="btn-withdraw">
+        </section>
+
+    </main>
+
+
+
+    <script>
+        const dAmount = document.getElementById('damount');
+
+        const dInput = document.getElementById('dinput');
+
+        const totalBalance = document.getElementById('balance');
+
+        document.getElementById('btn-deposit').addEventListener('click', function () {
+            const dAmountNum = parseInt(dAmount.innerText);
+            const newAmount = parseInt(dInput.value);
+            const deposit = dAmountNum + newAmount;
+            dAmount.innerText = deposit;
+            console.log(deposit);
+
+            //Update Balance 
+
+            const total = parseInt(totalBalance.innerText) + newAmount;
+            totalBalance.innerText = total;
+
+
+        })
+
+
+
+        // widhtdraw
+
+        const wInput = document.getElementById('winput');
+
+        const wAmount = document.getElementById('wamount');
+
+
+        document.getElementById('btn-withdraw').addEventListener('click',function(){
+            const newWithdraw = parseInt(wInput.value);
+            const prevWithdraw = parseInt(wAmount.innerText);
+
+            const totalWithdraw = newWithdraw+prevWithdraw;
+
+            wAmount.innerText = totalWithdraw;
+            
+            const total = parseInt(totalBalance.innerText) - newWithdraw;
+
+            totalBalance.innerText = total;
+            
+        })
+
+
+
+        
+
+
+
+
+    </script>
+
+
+</body>
+
+</html>

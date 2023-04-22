@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bank Management</title>
+    <!-- Tailwind Css -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="stylesheet" href="style.css">
+
+
+</head>
+
+<body>
+
+    <main class="container mx-auto h-[900px] flex justify-center items-center bg-blue-400">
+        <section class="bg-blue-300 w-[60%] rounded py-20 px-10 shadow">
+            <h1 class="text-4xl font-semibold text-white leading-10 tracking-[2px] mb-5">Login Here to Access The Bank
+            </h1>
+            <form action="">
+
+                <label for="uname" id="" class="text-2xl text-white tracking-[1px]">Username </label> <br>
+                <input type="text" id="uname" placeholder="Username" class="w-[90%] py-1 mb-5"> <br>
+                <label for="pass" class="text-2xl text-white tracking-[1px]">Password</label> <br>
+                <input type="password" id="pass" placeholder="Password" class="w-[90%] py-1 mb-5"> <br>
+                <input type="submit" id="btn-sub" value="Login" class="bg-gray-500 text-white py-2 px-4 rounded">
+            </form>
+
+        </section>
+    </main>
+
+    <script>
+        const userName = document.getElementById('uname');
+        const userPass = document.getElementById('pass');
+        const btnSub = document.getElementById('btn-sub');
+
+        btnSub.addEventListener('click', function () {
+            const a = userName.value;
+            const b = userPass.value;
+            console.log(`UserName: ${a} Password: ${b}`)
+
+            if (a === 'bishal' && b === '1111') {
+                window.location.href = 'Bank.html';
+            }
+            else {
+                alert('Entered Wrong Password or Username');
+            }
+        })
+
+
+
+
+
+    </script>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
